@@ -6,7 +6,10 @@ phases:
       java: corretto17
   build:
     commands:
-      - ./gradlew build
+      - sudo mkdir /opt/gradle
+      - wget -c https://services.gradle.org/distributions/gradle-4.2.1-bin.zip
+      - sudo unzip -d /opt/gradle gradle-4.2.1-bin.zip
+      - export PATH=$PATH:/opt/gradle/gradle-4.2.1/bin
   post_build:
     commands:
       - echo Build completed
